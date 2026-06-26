@@ -1,0 +1,14 @@
+# Site settings
+title: Freelance Services
+# description: An overview of freelance services
+baseurl: ""
+url: "https://basbiezemans.github.io"
+
+# Build settings
+theme: cayman
+markdown: kramdown
+
+# Plugins
+# plugins:
+#   - jekyll-feed
+#   - jekyll-seo-tag
