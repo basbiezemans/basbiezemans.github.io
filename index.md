@@ -1,4 +1,4 @@
 ---
-title: GitHub Pages Site
-layout: default
+title: Freelance Services
+layout: cayman
 ---
