@@ -5,10 +5,13 @@ baseurl: ""
 url: "https://basbiezemans.github.io"
 
 # Build settings
-theme: cayman
+# theme: default
 markdown: kramdown
+remote_theme: pages-themes/cayman@v0.2.0
+
 
 # Plugins
-# plugins:
+plugins:
+  - jekyll-remote-theme
 #   - jekyll-feed
 #   - jekyll-seo-tag
