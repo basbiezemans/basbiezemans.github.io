@@ -1,6 +1,8 @@
 
+# Services
+
 ## Custom Software Development
-I build tailored solutions that streamline operations, solve business challenges, and create competitive advantages.
+Build tailored solutions that streamline operations, solve business challenges, and create competitive advantages.
 
 ## Machine Learning Solutions
 Turn your existing data into production-ready models that automate decisions, uncover patterns, and improve forecasting, enabling faster, more accurate actions at scale while reducing manual analysis effort.
