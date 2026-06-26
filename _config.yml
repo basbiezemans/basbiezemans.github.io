@@ -1,17 +1,13 @@
 # Site settings
 title: Freelance Services
-# description: An overview of freelance services
-baseurl: ""
-url: "https://basbiezemans.github.io"
+description: Software Development & Consulting
 
 # Build settings
 # theme: default
+theme: jekyll-theme-cayman
 markdown: kramdown
-remote_theme: pages-themes/cayman@v0.2.0
-
 
 # Plugins
-plugins:
-  - jekyll-remote-theme
+# plugins:
 #   - jekyll-feed
 #   - jekyll-seo-tag
