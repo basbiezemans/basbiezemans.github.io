@@ -7,6 +7,10 @@ description: Software Development & Consulting
 theme: jekyll-theme-cayman
 markdown: kramdown
 
+# LinkedIn
+show_linkedin: true
+linkedin_url: https://www.linkedin.com/in/basbiezemans
+
 # Plugins
 # plugins:
 #   - jekyll-feed
