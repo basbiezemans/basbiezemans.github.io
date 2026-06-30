@@ -69,18 +69,6 @@
     box-shadow: 0 0 0 3px rgba(21,153,87,0.16);
 }
 
-.contact-form .error, .form-message {
-    font-size: 0.9rem;
-}
-
-.contact-form .error, .form-message.error {
-    color: #a61717;
-}
-
-.form-message.success {
-    color: #159957;
-}
-
 .contact-form button {
     justify-self: start;
     grid-column: 1 / -1;
