@@ -1,11 +1,23 @@
 {
   "forms": {
-    "contact": {
+    "contact-form": {
       "name": "Contact Form",
       "fields": {
-        "name": { "type": "text", "required": true },
-        "email": { "type": "email", "required": true },
-        "message": { "type": "text", "required": true }
+        "name": {
+          "type": "text",
+          "required": true,
+          "maxlength": 50
+        },
+        "email": {
+          "type": "email",
+          "required": true,
+          "maxlength": 100
+        },
+        "message": {
+          "type": "text",
+          "required": true,
+          "maxlength": 1000
+        }
       }
     }
   }
