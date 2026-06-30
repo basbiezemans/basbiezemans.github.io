@@ -72,7 +72,24 @@
         };
       formspree(
         'initForm',
-        { formElement: '#contact-form', formId: 'mqevllwb' }
+        { formElement: '#contact-form', formId: 'mqevllwb' },
+        // Override default rendering
+        renderSuccess: ({ form }, message) => {
+          const elements = document.getElementsByClassName('form-message');
+          Array.from(elements).forEach(el => {
+            el.style.borderRadius = '0px';
+            el.style.marginBottom = '0px';
+            setTimeout(() => el.style.display = 'none', 5000);
+          });
+        },
+        renderError: ({ form }, message) => {
+          const elements = document.getElementsByClassName('form-message');
+          Array.from(elements).forEach(el => {
+            el.style.borderRadius = '0px';
+            el.style.marginBottom = '0px';
+            setTimeout(() => el.style.display = 'none', 5000);
+          });
+        }
       );
     </script>
     <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
