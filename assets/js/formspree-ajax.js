@@ -515,6 +515,37 @@
         Y = !0
     }
     ;
+    var validateContactForm = e => {
+        let r = e.form
+          , t = {
+            name: {
+                required: "Please enter your name"
+            },
+            email: {
+                required: "Please enter your email address",
+                invalid: "Please enter a valid email address"
+            },
+            message: {
+                required: "Please enter a message"
+            }
+        }
+          , n = !0;
+        return Object.entries(t).forEach( ([o,i]) => {
+            let d = r.elements[o]
+              , l = r.querySelector(`[${m.ERROR}="${o}"]`)
+              , a = d && "value"in d ? d.value.trim() : ""
+              , u = "";
+            a ? o === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(a) && (u = i.invalid) : u = i.required,
+            u ? (n = !1,
+            l && (b(l),
+            O(l, u)),
+            d == null || d.setAttribute("aria-invalid", "true")) : (l && b(l),
+            d == null || d.removeAttribute("aria-invalid"))
+        }
+        ),
+        n
+    }
+    ;
     var Ve = (e, r) => P(void 0, null, function*() {
         if (r.submitting)
             return;
@@ -588,7 +619,7 @@
         }
           , a = E => {
             E.preventDefault(),
-            Ve(i, l)
+            validateContactForm(i) && Ve(i, l)
         }
         ;
         return r.addEventListener("submit", a),
