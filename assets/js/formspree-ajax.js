@@ -457,46 +457,61 @@
         let e = document.createElement("style");
         e.setAttribute("data-formspree-styles", ""),
         e.textContent = `
-    [${m.ERROR}],
-    [${m.SUCCESS}] {
-      display: none;
-    }
+            [${m.ERROR}],
+            [${m.SUCCESS}] {
+                display: none;
+                opacity: 0;
+            }
 
-    [${m.ERROR}][${m.ACTIVE}] {
-      display: block;
-      color: #a61717;
-    }
+            [${m.ERROR}][${m.ACTIVE}] {
+                display: block;
+                opacity: 1;
+                color: #a61717;
+            }
 
-    [${m.ERROR}=""][${m.ACTIVE}] {
-      padding: 12px;
-      border-radius: 0px;
-      margin-bottom: 0px;
-      font-size: 0.9rem;
-      background: #f8d7da;
-      border: 1px solid #f5c6cb;
-    }
+            [${m.ERROR}=""][${m.ACTIVE}] {
+                padding: 12px;
+                border-radius: 0px;
+                margin-bottom: 0px;
+                font-size: 0.9rem;
+                background: #f8d7da;
+                border: 1px solid #f5c6cb;
+            }
 
-    [${m.ERROR}]:not([${m.ERROR}=""])[${m.ACTIVE}] {
-      font-size: 0.8rem;
-      margin-top: 4px;
-    }
+            [${m.ERROR}]:not([${m.ERROR}=""])[${m.ACTIVE}] {
+                font-size: 0.8rem;
+                margin-top: 4px;
+            }
 
-    [${m.SUCCESS}][${m.ACTIVE}] {
-      display: block;
-      padding: 12px;
-      border-radius: 0px;
-      margin-bottom: 0px;
-      font-size: 0.9rem;
-      background: #d4edda;
-      color: #155724;
-      border: 1px solid #c3e6cb;
-    }
+            [${m.SUCCESS}][${m.ACTIVE}] {
+                display: block;
+                opacity: 1;
+                animation: fs-fade-out 500ms cubic-bezier(0.4, 0, 0.2, 1) 3000ms forwards;
+                padding: 12px;
+                border-radius: 0px;
+                margin-bottom: 0px;
+                font-size: 0.9rem;
+                background: #d4edda;
+                color: #155724;
+                border: 1px solid #c3e6cb;
+            }
 
-    [${m.FIELD}][aria-invalid="true"] {
-      border-color: #a61717;
-    }
-  `,
+            [${m.FIELD}][aria-invalid="true"] {
+                border-color: #a61717;
+            }
+
+            @keyframes fs-fade-out {
+                to {
+                    opacity: 0;
+                }
+            }
+        `,
         document.head.appendChild(e),
+        document.addEventListener("animationend", r => {
+            let t = r.target;
+            r.animationName === "fs-fade-out" && t instanceof Element && t.hasAttribute(m.ACTIVE) && t.hasAttribute(m.SUCCESS) && b(t)
+        }
+        ),
         Y = !0
     }
     ;
