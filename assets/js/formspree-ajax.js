@@ -461,6 +461,7 @@
             [${m.SUCCESS}] {
                 display: none;
                 opacity: 0;
+                max-height: 0;
             }
 
             [${m.ERROR}][${m.ACTIVE}] {
@@ -486,7 +487,8 @@
             [${m.SUCCESS}][${m.ACTIVE}] {
                 display: block;
                 opacity: 1;
-                animation: fs-fade-out 500ms cubic-bezier(0.4, 0, 0.2, 1) 3000ms forwards;
+                animation: fs-collapse 500ms cubic-bezier(0.4, 0, 0.2, 1) 3000ms forwards;
+                max-height: 200px;
                 padding: 12px;
                 border-radius: 0px;
                 margin-bottom: 0px;
@@ -494,22 +496,28 @@
                 background: #d4edda;
                 color: #155724;
                 border: 1px solid #c3e6cb;
+                overflow: hidden;
             }
 
             [${m.FIELD}][aria-invalid="true"] {
                 border-color: #a61717;
             }
 
-            @keyframes fs-fade-out {
+            @keyframes fs-collapse {
                 to {
-                    opacity: 0;
+                    max-height: 0;
+                    padding-top: 0;
+                    padding-bottom: 0;
+                    margin-bottom: 0;
+                    border-width: 0;
+                    overflow: hidden;
                 }
             }
         `,
         document.head.appendChild(e),
         document.addEventListener("animationend", r => {
             let t = r.target;
-            r.animationName === "fs-fade-out" && t instanceof Element && t.hasAttribute(m.ACTIVE) && t.hasAttribute(m.SUCCESS) && b(t)
+            r.animationName === "fs-collapse" && t instanceof Element && t.hasAttribute(m.ACTIVE) && t.hasAttribute(m.SUCCESS) && b(t)
         }
         ),
         Y = !0
